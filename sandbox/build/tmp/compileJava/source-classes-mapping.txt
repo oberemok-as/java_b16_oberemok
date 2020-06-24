@@ -1,2 +1,2 @@
-mfp.java
- mfp
+ru/stqa/pft/sandbox/mfp.java
+ ru.stqa.pft.sandbox.mfp
