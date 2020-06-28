@@ -4,3 +4,5 @@ ru/stqa/pft/sandbox/Rec.java
  ru.stqa.pft.sandbox.Rec
 ru/stqa/pft/sandbox/Square.java
  ru.stqa.pft.sandbox.Square
+ru/stqa/pft/sandbox/Point.java
+ ru.stqa.pft.sandbox.Point
