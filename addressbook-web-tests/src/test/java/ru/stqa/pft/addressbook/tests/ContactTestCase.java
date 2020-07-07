@@ -32,7 +32,7 @@ public class ContactTestCase {
   @Test
   public void testContactTestCase() throws Exception {
     link_add_new();
-    fill_form("Tester", "Testor", "Tester", "9269269269", "926@mail.ru", "100100 Sas str 18 18", "10", "May", "1989");
+    fill_form(new ContactData("Tester", "Testor", "Tester", "9269269269", "926@mail.ru", "100100 Sas str 18 18", "10", "May", "1989"));
     submit_contact();
     return_home();
     logout();
@@ -50,30 +50,30 @@ public class ContactTestCase {
     wd.findElement(By.xpath("(//input[@name='submit'])[2]")).click();
   }
 
-  private void fill_form(String firstname, String middlename, String lastname, String mobile, String email, String address2, String bday, String bmonth, String byear) {
+  private void fill_form(ContactData contactData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
-    wd.findElement(By.name("firstname")).sendKeys(firstname);
+    wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
     wd.findElement(By.name("middlename")).clear();
-    wd.findElement(By.name("middlename")).sendKeys(middlename);
+    wd.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
     wd.findElement(By.name("lastname")).clear();
-    wd.findElement(By.name("lastname")).sendKeys(lastname);
+    wd.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
     wd.findElement(By.name("mobile")).clear();
-    wd.findElement(By.name("mobile")).sendKeys(mobile);
+    wd.findElement(By.name("mobile")).sendKeys(contactData.getMobile());
     wd.findElement(By.name("email")).clear();
-    wd.findElement(By.name("email")).sendKeys(email);
+    wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
     wd.findElement(By.name("bday")).click();
-    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(bday);
+    new Select(wd.findElement(By.name("bday"))).selectByVisibleText(contactData.getBday());
     wd.findElement(By.name("bday")).click();
     wd.findElement(By.name("bmonth")).click();
-    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(bmonth);
+    new Select(wd.findElement(By.name("bmonth"))).selectByVisibleText(contactData.getBmonth());
     wd.findElement(By.name("bmonth")).click();
     wd.findElement(By.name("byear")).click();
     wd.findElement(By.name("byear")).clear();
-    wd.findElement(By.name("byear")).sendKeys(byear);
+    wd.findElement(By.name("byear")).sendKeys(contactData.getByear());
     wd.findElement(By.name("address2")).click();
     wd.findElement(By.name("address2")).clear();
-    wd.findElement(By.name("address2")).sendKeys(address2);
+    wd.findElement(By.name("address2")).sendKeys(contactData.getAddress2());
   }
 
   private void link_add_new() {
