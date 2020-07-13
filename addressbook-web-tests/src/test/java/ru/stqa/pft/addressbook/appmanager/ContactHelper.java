@@ -6,6 +6,8 @@ import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase{
 
+
+
   public ContactHelper (WebDriver wd) {
     super(wd);
   }
@@ -41,5 +43,18 @@ public class ContactHelper extends HelperBase{
 
   public void closeAlert() {
     wd.switchTo().alert().accept();
+  }
+
+  public void submitUpdate() {
+    click(By.name("update"));
+  }
+
+  public void editContact() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+
+  public void fillFormForChange(String s) {
+
   }
 }
