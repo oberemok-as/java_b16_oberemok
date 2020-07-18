@@ -6,11 +6,10 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
 
-
-  public ContactHelper (WebDriver wd) {
+  public ContactHelper(WebDriver wd) {
     super(wd);
   }
 
@@ -32,14 +31,13 @@ public class ContactHelper extends HelperBase{
     date(By.name("bmonth"), contactData.getBmonth());
     type(By.name("byear"), contactData.getByear());
     type(By.name("address2"), contactData.getAddress2());
-    if (creation){
+    if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
 
-    }
-
+  }
 
 
   public void selectContact() {
@@ -48,7 +46,7 @@ public class ContactHelper extends HelperBase{
 
   public void deleteContact() {
     click(By.xpath("//input[@value='Delete']"));
-      }
+  }
 
   public void closeAlert() {
     wd.switchTo().alert().accept();
@@ -62,4 +60,13 @@ public class ContactHelper extends HelperBase{
     click(By.xpath("//img[@alt='Edit']"));
   }
 
+  public void createContact(ContactData contact, boolean creation) {
+    fillForm(contact, true);
+    submitContact();
+    returnHome();
+  }
+
+  public boolean isThereContact() {
+return isElementPresent(By.name("selected[]"));
+  }
 }

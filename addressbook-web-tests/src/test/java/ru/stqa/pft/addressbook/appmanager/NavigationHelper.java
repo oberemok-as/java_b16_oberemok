@@ -20,11 +20,16 @@ public class  NavigationHelper extends HelperBase{
   }
 
   public void linkAddNew() {
-    if (isElementPresent(By.id("maintable"))){
+    if (isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).equals("Edit / add address book entry")){
       return;
     }
     click(By.linkText("add new"));
   }
 
-  public void gotoHome() { click(By.linkText("home"));  }
+  public void gotoHome() {
+    if (isElementPresent(By.id("maintable"))){
+      return;
+    }
+    click(By.linkText("home"));  }
 }
