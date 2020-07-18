@@ -2,6 +2,8 @@ package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 public class ContactHelper extends HelperBase{
@@ -12,15 +14,15 @@ public class ContactHelper extends HelperBase{
     super(wd);
   }
 
-  public void return_home() {
+  public void returnHome() {
     click(By.linkText("home page"));
   }
 
-  public void submit_contact() {
+  public void submitContact() {
     click(By.xpath("(//input[@name='submit'])[2]"));
   }
 
-  public void fill_form(ContactData contactData) {
+  public void fillForm(ContactData contactData, boolean creation) {
     type(By.name("firstname"), contactData.getFirstname());
     type(By.name("middlename"), contactData.getMiddlename());
     type(By.name("lastname"), contactData.getLastname());
@@ -30,7 +32,14 @@ public class ContactHelper extends HelperBase{
     date(By.name("bmonth"), contactData.getBmonth());
     type(By.name("byear"), contactData.getByear());
     type(By.name("address2"), contactData.getAddress2());
-  }
+    if (creation){
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
+
+    }
+
 
 
   public void selectContact() {
@@ -53,8 +62,4 @@ public class ContactHelper extends HelperBase{
     click(By.xpath("//img[@alt='Edit']"));
   }
 
-
-  public void fillFormForChange(String s) {
-
-  }
 }
