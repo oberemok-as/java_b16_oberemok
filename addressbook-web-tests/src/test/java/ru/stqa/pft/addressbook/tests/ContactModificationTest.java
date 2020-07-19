@@ -16,7 +16,7 @@ public class ContactModificationTest extends TestBase{
               null,"9269269269", "926@mail.ru", "100100 Sas str 18 18",
               "10", "May", "1989","Admin"),true);
     }
-    app.getContactHelper().selectContact();
+    app.getContactHelper().selectContact(before-1);
     app.getContactHelper().editContact();
     app.getContactHelper().fillForm(new ContactData(null, null, null,
             "000000, Тестеровая ул. 0","9269269269", null, "", null,

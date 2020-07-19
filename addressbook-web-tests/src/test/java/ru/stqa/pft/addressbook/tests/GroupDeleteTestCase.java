@@ -13,7 +13,7 @@ public class GroupDeleteTestCase extends TestBase {
         if (! app.getGroupHelper().isThereGroup()){
       app.getGroupHelper().createGroup(new GroupData("Admin", "GroupAdmin", "administration"));
     }
-    app.getGroupHelper().select_group();
+    app.getGroupHelper().selectGroup(before-1);
     app.getGroupHelper().delete_group();
     app.getGroupHelper().returnToCreatedPage();
     int after = app.getGroupHelper().getGroupCount();
