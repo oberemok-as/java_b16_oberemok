@@ -1,5 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.concurrent.TimeUnit;
 
@@ -17,24 +18,29 @@ public class ContactDeleteTest extends TestBase {
   @Test
   public void testUntitledTestCase() throws Exception {
     app.getNavigationHelper().gotoHome();
-    int before = app.getContactHelper().getContactCount();
+
     if (! app.getContactHelper().isThereContact()){
       app.getNavigationHelper().linkAddNew();
       app.getContactHelper().createContact(new ContactData("Tester", "Testor", "Tester",
               null,"9269269269", "926@mail.ru", "100100 Sas str 18 18",
               "10", "May", "1989","Admin"),true);
     }
-    app.getContactHelper().selectContact(before-1);
+    List<ContactData> before=app.getContactHelper().getContactList();
+    app.getContactHelper().selectContact(before.size()-1);
     app.getContactHelper().deleteContact();
    // acceptNextAlert = true;
     app.getContactHelper().closeAlert();
     app.getNavigationHelper().gotoHome();
-    int after = app.getContactHelper().getContactCount();
-    if (before!=0) {
-      Assert.assertEquals(after, before - 1);
+    List<ContactData> after=app.getContactHelper().getContactList();
+    if (before.size()!=0) {
+      Assert.assertEquals(after.size(), before.size() - 1);
     } else {
-      Assert.assertEquals(after, before);
+      Assert.assertEquals(after.size(), before);
     }
+
+    before.remove(before.size() - 1);
+      Assert.assertEquals(before,after);
+
   }
 
 
