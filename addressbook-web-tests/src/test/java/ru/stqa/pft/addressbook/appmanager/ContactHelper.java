@@ -85,7 +85,8 @@ return isElementPresent(By.name("selected[]"));
        List<WebElement> cells = element.findElements(By.tagName("td"));
        String firstname = cells.get(2).getText();
        String lastname = cells.get(1).getText();
-       ContactData contact = new ContactData(firstname,null,lastname,null,null,null,null,null,null,null,null);
+       String id =element.findElement(By.tagName("input")).getAttribute("value");
+       ContactData contact = new ContactData(id,firstname,null,lastname,null,null,null,null,null,null,null,null);
      contacts.add(contact);
      }
     return contacts;
