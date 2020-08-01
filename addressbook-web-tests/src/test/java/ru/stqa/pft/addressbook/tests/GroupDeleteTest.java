@@ -5,10 +5,9 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
 
-import java.util.Comparator;
 import java.util.List;
 
-public class GroupModificationTest extends TestBase{
+public class GroupDeleteTest extends TestBase {
 
   @BeforeMethod
   public void enserePreconditions(){
@@ -17,28 +16,26 @@ public class GroupModificationTest extends TestBase{
       app.group().create(new GroupData("Admin", "GroupAdmin", "administration"));
     }
   }
-
   @Test
-  public void testGroupModification (){
-
+  public void testGroupDelete() throws Exception {
     List<GroupData> before = app.group().list();
     int index = before.size()-1;
-    GroupData group = new GroupData(before.get(index).getId(),"Admin", "Administration", null);
-
-    app.group().modify(index, group);
+    app.group().delete(index);
     List<GroupData> after = app.group().list();
     if (before.size()!=0) {
-      Assert.assertEquals(after.size(), before.size() );
+      Assert.assertEquals(after.size(), before.size()-1);
     } else {
-      Assert.assertEquals(after.size(), before.size()+1);
+      Assert.assertEquals(after.size(), before.size());
     }
     before.remove(index);
-    before.add(group);
-    Comparator<? super GroupData> byId=(c1,c2)->Integer.compare(c1.getId(),c2.getId());
-    before.sort(byId);
-    after.sort(byId);
-    Assert.assertEquals(before, after);
+     Assert.assertEquals(before,after);
+
   }
 
 
+
 }
+
+
+
+
