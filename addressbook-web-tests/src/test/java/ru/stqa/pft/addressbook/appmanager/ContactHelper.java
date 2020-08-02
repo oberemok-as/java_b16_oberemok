@@ -7,7 +7,6 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -45,10 +44,6 @@ public class ContactHelper extends HelperBase {
 
   }
 
-
-  public void selectContact(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
-  }
   public void selectContactById(int id) {
     wd.findElement(By.cssSelector("input[value='" + id + "']")).click();
   }
@@ -94,20 +89,6 @@ return isElementPresent(By.name("selected[]"));
     selectContactById(contact.getId());
     deleteContact();
     closeAlert();
-  }
-
-  public List<ContactData> list() {
-     List<ContactData> contacts=new ArrayList<ContactData>();
-       List<WebElement> elements=wd.findElements(By.cssSelector("tr[name=\"entry\"]"));
-            for (WebElement element : elements){
-       List<WebElement> cells = element.findElements(By.tagName("td"));
-       String firstname = cells.get(2).getText();
-       String lastname = cells.get(1).getText();
-       int id =Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-       ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname);
-     contacts.add(contact);
-     }
-    return contacts;
   }
 
   public Set<ContactData> all() {

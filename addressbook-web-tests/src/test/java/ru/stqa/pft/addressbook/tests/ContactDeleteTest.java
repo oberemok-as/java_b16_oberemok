@@ -1,17 +1,17 @@
 package ru.stqa.pft.addressbook.tests;
 
-import java.util.List;
-import java.util.Set;
-
 import org.testng.Assert;
-import org.testng.annotations.*;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
+
+import java.util.Set;
 
 public class ContactDeleteTest extends TestBase {
   @BeforeMethod
   public void ensurePreconditions(){
     app.goTo().home();
-    if (app.contact().list().size()==0){
+    if (app.contact().all().size()==0){
       app.goTo().addNew();
       app.contact().create(new ContactData().withFirstname("Tester").withLastname("Testor").withMiddlename("Tester")
               .withMobile("9269269269").withEmail("926@mail.ru").withAddress("100100 Sas str 18 18")
