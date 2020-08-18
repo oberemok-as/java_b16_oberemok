@@ -1,6 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
 import io.netty.util.internal.ConstantTimeUtils;
+import org.hamcrest.CoreMatchers;
 import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -31,13 +32,12 @@ public class GroupModificationTest extends TestBase{
     GroupData modifiedGroup = before.iterator().next();
     GroupData group = new GroupData().withId(modifiedGroup.getId()).withName("Admin").withHeader( "Administration");
     app.group().modify(group);
-    Groups after =  app.group().all();
-        if (before.size()!=0) {
-      assertEquals(after.size(), before.size() );
+    if (before.size()!=0) {
+          assertThat(app.group().count(), CoreMatchers.equalTo(before.size() ) );
     } else {
-      assertEquals(after.size(), before.size()+1);
+          assertThat(app.group().count(), CoreMatchers.equalTo(before.size() + 1));
     }
-
+    Groups after =  app.group().all();
     assertThat(after, equalTo(before.without(modifiedGroup).withAdded(group)));
   }
 
