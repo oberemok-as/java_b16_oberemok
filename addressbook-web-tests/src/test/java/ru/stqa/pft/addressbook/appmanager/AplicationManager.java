@@ -23,6 +23,7 @@ private SessionHelper sessionHelper;
   private GroupHelper groupHelper;
   private ContactHelper contactHelper;
   private String browser;
+  private DbHelper dbHelper;
 
   public AplicationManager(String browser)  {
     this.browser = browser;
@@ -32,7 +33,7 @@ private SessionHelper sessionHelper;
   public void init() throws IOException {
     String target = System.getProperty("target", "local");
         properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties",target))));
-
+    dbHelper = new DbHelper();
     if(browser.equals(BrowserType.FIREFOX)){
       wd = new FirefoxDriver();
     }
@@ -50,6 +51,7 @@ private SessionHelper sessionHelper;
     sessionHelper = new SessionHelper(wd);
     contactHelper=new ContactHelper(wd);
     sessionHelper.login(properties.getProperty("web.adminLogin"),properties.getProperty("web.adminPassword"));
+
   }
 
 
@@ -81,4 +83,7 @@ private SessionHelper sessionHelper;
   }
 
   public ContactHelper contact() { return contactHelper;  }
+  public DbHelper db(){
+    return dbHelper;
+  }
 }

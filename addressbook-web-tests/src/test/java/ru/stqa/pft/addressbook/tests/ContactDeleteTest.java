@@ -10,10 +10,10 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.MatcherAssert.assertThat;
 
 public class ContactDeleteTest extends TestBase {
-  @BeforeMethod
+
+ @BeforeMethod
   public void ensureContactPreconditions(){
-    app.goTo().home();
-    if (app.contact().all().size()==0){
+    if (app.db().contacts().size()==0){
       app.goTo().addNew();
       app.contact().create(new ContactData().withFirstname("Tester").withLastname("Testor").withMiddlename("Tester")
               .withMobile("9269269269").withEmail("926@mail.ru").withAddress("100100 Sas str 18 18")
@@ -25,17 +25,12 @@ public class ContactDeleteTest extends TestBase {
 
   @Test
   public void testUntitledTestCase() throws Exception {
-    Contacts before=app.contact().all();
+    Contacts before=app.db().contacts();
     ContactData delCotnact=before.iterator().next();
     app.contact().delete(delCotnact);
     app.goTo().home();
-
-    if (before.size()!=0) {
       Assert.assertEquals(app.contact().count(), before.size() - 1);
-    } else {
-      Assert.assertEquals(app.contact().count(), before);
-    }
-    Contacts after=app.contact().all();
+    Contacts after=app.db().contacts();
     assertThat(after, equalTo(before.withOut(delCotnact)));
 
   }
