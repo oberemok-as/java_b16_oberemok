@@ -42,16 +42,16 @@ public class ContactHelper extends HelperBase {
     date(By.name("bday"), contactData.getBday());
     date(By.name("bmonth"), contactData.getBmonth());
     type(By.name("byear"), contactData.getByear());
-    if (creation) {
-if (contactData.getGroups().size()>0){
-  Assert.assertTrue(contactData.getGroups().size() == 1);
-}
-     new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
-    } else {
-      Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }
 
+    if (contactData.getGroups().size() > 0) {
+      if (creation) {
+        Assert.assertTrue(contactData.getGroups().size() == 1);
+        new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
+      } else
+        Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
   }
+
   public ContactData infoFromEditForm(ContactData contact) {
     editContact(contact.getId());
     String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
@@ -151,5 +151,13 @@ return isElementPresent(By.name("selected[]"));
   public void selestGroup(String group) {
     //String selectedGroup = group.getGroups().iterator().next().getName();
     new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(format("%s",group));
+  }
+
+  public void submitRemoove() {
+    wd.findElement(By.name("remove")).click();
+  }
+
+  public void urlHomeWithFilterByGroup(int selectedGroupID) {
+    wd.get(format("http://localhost/addressbook/?group=%s",selectedGroupID));
   }
 }

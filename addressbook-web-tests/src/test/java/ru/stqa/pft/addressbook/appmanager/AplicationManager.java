@@ -44,7 +44,7 @@ private SessionHelper sessionHelper;
       wd = new InternetExplorerDriver();
     }
 
-    wd.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    wd.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
    wd.get(properties.getProperty("web.baseURL"));
     groupHelper = new GroupHelper(wd);
     navigationHelper = new NavigationHelper(wd);

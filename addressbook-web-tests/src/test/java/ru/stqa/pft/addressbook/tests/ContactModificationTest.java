@@ -16,9 +16,10 @@ public class ContactModificationTest extends TestBase {
   public void ensureContactPreconditions() {
     if (app.db().contacts().size()==0) {
       app.goTo().addNew();
+      File photo=new File("src/test/resources/pp.jpg");
       app.contact().create(new ContactData().withFirstname("Tester").withLastname("Testor").withMiddlename("Tester")
               .withMobile("9269269269").withEmail("926@mail.ru").withAddress("100100 Sas str 18 18")
-              .withBday("10").withBmonth("May").withByear( "1989"),true);
+              .withBday("10").withBmonth("May").withByear( "1989").withPhoto(photo),true);
     }
   }
 
