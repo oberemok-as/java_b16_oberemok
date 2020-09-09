@@ -1,14 +1,15 @@
 package ru.stqa.pft.addressbook.model;
 
 import com.google.gson.annotations.Expose;
-import com.sun.javafx.beans.IDProperty;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
 import org.hibernate.annotations.Type;
-
 import javax.persistence.*;
 import java.io.File;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
+
 @XStreamAlias("contacts")
 @Entity
 @Table(name = "addressbook")
@@ -58,14 +59,16 @@ public class ContactData {
   @Column(name = "byear")
   private String byear;
   @Transient
-  private String group;
-  @Transient
   private String allPhones;
   @Transient
   private String allEmails;
   @Column(name = "photo")
   @Type(type = "text")
   private String photo;
+  @ManyToMany(fetch = FetchType.EAGER)
+  @JoinTable(name = "address_in_groups"
+          ,joinColumns = @JoinColumn(name = "id"),inverseJoinColumns = @JoinColumn(name="group_id"))
+  private Set<GroupData> groups = new HashSet<GroupData>();
 
   public ContactData withPhoto(File photo) {
     this.photo = photo.getPath();
@@ -155,11 +158,6 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
-
   public int  getId() {
     return id;
   }
@@ -210,11 +208,7 @@ public class ContactData {
     return byear;
   }
 
-  public String getGroup() {
-    return group;
-  }
-
-  public String getAllPhones() {
+   public String getAllPhones() {
     return allPhones;
   }
   public String getAllEmails() {
@@ -223,6 +217,10 @@ public class ContactData {
 
   public File getPhoto() {
     return new File(photo);
+  }
+
+  public Groups getGroups() {
+    return new Groups(groups);
   }
 
   @Override
@@ -247,5 +245,10 @@ public class ContactData {
   @Override
   public int hashCode() {
     return Objects.hash(id, firstname, lastname);
+  }
+
+  public ContactData inGroups(GroupData group) {
+    groups.add(group);
+    return this;
   }
 }

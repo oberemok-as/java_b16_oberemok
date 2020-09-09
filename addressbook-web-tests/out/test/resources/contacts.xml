@@ -8,8 +8,8 @@
     <email>email1@m.ru 0</email>
     <email2>email2@m.ru 0</email2>
     <email3>email3@m.ru 0</email3>
-    <group>Admin</group>
     <photo>src\test\resources\pp.jpg</photo>
+    <groups/>
   </contacts>
   <contacts>
     <firstname>name1</firstname>
@@ -20,8 +20,8 @@
     <email>email1@m.ru 1</email>
     <email2>email2@m.ru 1</email2>
     <email3>email3@m.ru 1</email3>
-    <group>Admin</group>
     <photo>src\test\resources\pp.jpg</photo>
+    <groups/>
   </contacts>
   <contacts>
     <firstname>name2</firstname>
@@ -32,31 +32,7 @@
     <email>email1@m.ru 2</email>
     <email2>email2@m.ru 2</email2>
     <email3>email3@m.ru 2</email3>
-    <group>Admin</group>
     <photo>src\test\resources\pp.jpg</photo>
-  </contacts>
-  <contacts>
-    <firstname>name3</firstname>
-    <middlename>middle3</middlename>
-    <lastname>lastname3</lastname>
-    <address>addres3</address>
-    <mobile>9993</mobile>
-    <email>email1@m.ru 3</email>
-    <email2>email2@m.ru 3</email2>
-    <email3>email3@m.ru 3</email3>
-    <group>Admin</group>
-    <photo>src\test\resources\pp.jpg</photo>
-  </contacts>
-  <contacts>
-    <firstname>name4</firstname>
-    <middlename>middle4</middlename>
-    <lastname>lastname4</lastname>
-    <address>addres4</address>
-    <mobile>9994</mobile>
-    <email>email1@m.ru 4</email>
-    <email2>email2@m.ru 4</email2>
-    <email3>email3@m.ru 4</email3>
-    <group>Admin</group>
-    <photo>src\test\resources\pp.jpg</photo>
+    <groups/>
   </contacts>
 </list>

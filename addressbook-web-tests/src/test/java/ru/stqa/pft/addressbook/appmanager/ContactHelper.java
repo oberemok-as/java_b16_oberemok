@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 import ru.stqa.pft.addressbook.model.Groups;
 
 import java.util.HashSet;
@@ -42,8 +43,10 @@ public class ContactHelper extends HelperBase {
     date(By.name("bmonth"), contactData.getBmonth());
     type(By.name("byear"), contactData.getByear());
     if (creation) {
-
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
+if (contactData.getGroups().size()>0){
+  Assert.assertTrue(contactData.getGroups().size() == 1);
+}
+     new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroups().iterator().next().getName());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -137,4 +140,16 @@ return isElementPresent(By.name("selected[]"));
 
 
 
+  public void returnHomeWithFilterByGroup(String selectedGroup) {
+    wd.findElement(By.linkText(format("group page \"%s\"",selectedGroup))).click();
+  }
+
+  public void submitAddTo() {
+    wd.findElement(By.name("add")).click();
+  }
+
+  public void selestGroup(String group) {
+    //String selectedGroup = group.getGroups().iterator().next().getName();
+    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(format("%s",group));
+  }
 }

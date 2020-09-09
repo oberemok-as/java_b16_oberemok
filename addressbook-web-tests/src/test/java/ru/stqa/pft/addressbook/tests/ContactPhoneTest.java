@@ -17,7 +17,7 @@ public class ContactPhoneTest extends TestBase{
       app.goTo().addNew();
       app.contact().create(new ContactData().withFirstname("Tester").withLastname("Testor").withMiddlename("Tester")
               .withMobile("9269269269").withEmail("926@mail.ru").withAddress("100100 Sas str 18 18")
-              .withBday("10").withBmonth("May").withByear( "1989").withGroup("Admin"),true);
+              .withBday("10").withBmonth("May").withByear( "1989"),true);
     }
   }
   @Test
