@@ -1,7 +1,5 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -13,13 +11,14 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Properties;
 import java.util.concurrent.TimeUnit;
-import java.util.regex.MatchResult;
 
 public class AplicationManager {
   private final Properties properties;
   private WebDriver wd;
   private String browser;
   private RegistrationHelper registrationHelper;
+  private FtpHelper ftp;
+  private MailHelper mailHelper;
 
 
   public AplicationManager(String browser)  {
@@ -55,6 +54,12 @@ public class AplicationManager {
     return registrationHelper;
   }
 
+  public FtpHelper ftp() {
+    if (ftp == null) {
+      ftp = new FtpHelper(this);
+    }
+    return ftp;
+  }
   public WebDriver getDriver() {
     if (wd == null){
       if(browser.equals(BrowserType.FIREFOX)){
@@ -71,5 +76,12 @@ public class AplicationManager {
       wd.get(properties.getProperty("web.baseURL"));
     }
     return wd;
+  }
+
+  public MailHelper mail() {
+    if (mailHelper == null) {
+      mailHelper = new MailHelper(this);
+    }
+    return mailHelper;
   }
 }
