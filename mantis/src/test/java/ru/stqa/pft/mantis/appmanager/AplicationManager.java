@@ -19,6 +19,7 @@ public class AplicationManager {
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
+  private JamesHelper jamesHelper;
 
 
   public AplicationManager(String browser)  {
@@ -72,7 +73,7 @@ public class AplicationManager {
         wd = new InternetExplorerDriver();
       }
 
-      wd.manage().timeouts().implicitlyWait(100, TimeUnit.SECONDS);
+      wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
       wd.get(properties.getProperty("web.baseURL"));
     }
     return wd;
@@ -83,5 +84,12 @@ public class AplicationManager {
       mailHelper = new MailHelper(this);
     }
     return mailHelper;
+  }
+
+  public JamesHelper james() {
+    if (jamesHelper == null) {
+      jamesHelper = new JamesHelper(this);
+    }
+    return jamesHelper;
   }
 }
