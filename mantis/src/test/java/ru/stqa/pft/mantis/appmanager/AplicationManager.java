@@ -20,6 +20,8 @@ public class AplicationManager {
   private FtpHelper ftp;
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
+  private ResetHelper resetHelper;
+  private DbHelper dbHelper;
 
 
   public AplicationManager(String browser)  {
@@ -53,6 +55,13 @@ public class AplicationManager {
       registrationHelper = new RegistrationHelper(this);
     }
     return registrationHelper;
+  }
+
+  public ResetHelper reset() {
+    if (resetHelper == null) {
+      resetHelper = new ResetHelper(this);
+    }
+    return resetHelper;
   }
 
   public FtpHelper ftp() {
@@ -91,5 +100,12 @@ public class AplicationManager {
       jamesHelper = new JamesHelper(this);
     }
     return jamesHelper;
+  }
+
+  public DbHelper db(){
+    if (dbHelper == null){
+      dbHelper = new DbHelper(this);
+    }
+    return dbHelper;
   }
 }
