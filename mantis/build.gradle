@@ -4,7 +4,7 @@ repositories {
     mavenCentral()
 }
 dependencies {
-    implementation 'org.testng:testng:7.1.0'
+    implementation 'org.testng:testng:7.3.0'
     implementation 'org.seleniumhq.selenium:selenium-java:4.0.0-alpha-6'
     implementation 'org.hamcrest:hamcrest:2.2'
     compile group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.12'
@@ -15,6 +15,7 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.4.21.Final'
     implementation 'mysql:mysql-connector-java:5.1.49'
     implementation 'biz.futureware.mantis:mantis-axis-soap-client:1.2.19'
+    implementation 'axis:axis:1.4'
 }
 
 test {
