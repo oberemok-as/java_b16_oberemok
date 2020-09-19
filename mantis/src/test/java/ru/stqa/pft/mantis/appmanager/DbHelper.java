@@ -13,8 +13,8 @@ import java.util.List;
 
 public class DbHelper {
   private final SessionFactory sessionFactory;
-  private AplicationManager app;
-  public DbHelper(AplicationManager app){
+  private ApplicationManager app;
+  public DbHelper(ApplicationManager app){
     final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
             .configure() // configures settings from hibernate.cfg.xml
             .build();

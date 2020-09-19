@@ -17,9 +17,9 @@ import java.util.List;
 public class HttpSession {
 
   private CloseableHttpClient httpClient;
-  private AplicationManager app;
+  private ApplicationManager app;
 
-  public HttpSession(AplicationManager app) {
+  public HttpSession(ApplicationManager app) {
     this.app = app;
     httpClient = HttpClients.custom().setRedirectStrategy(new LaxRedirectStrategy()).build();
   }

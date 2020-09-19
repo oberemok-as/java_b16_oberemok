@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class MailHelper {
-  private AplicationManager app;
+  private ApplicationManager app;
   private Wiser wiser;
 
-  public MailHelper(AplicationManager app) {
+  public MailHelper(ApplicationManager app) {
     this.app = app;
     wiser = new Wiser();
   }

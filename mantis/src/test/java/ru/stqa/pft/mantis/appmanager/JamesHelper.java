@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 
 
 public class JamesHelper {
-  private AplicationManager app;
+  private ApplicationManager app;
   private TelnetClient telnet;
   private PrintStream out;
   private InputStream in;
@@ -23,7 +23,7 @@ public class JamesHelper {
   private Store store;
   private String mailserver;
 
-  public JamesHelper(AplicationManager app) {
+  public JamesHelper(ApplicationManager app) {
     this.app = app;
     telnet = new TelnetClient();
     mailSession = Session.getDefaultInstance(System.getProperties());

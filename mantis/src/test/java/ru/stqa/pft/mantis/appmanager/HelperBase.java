@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.Select;
 import java.io.File;
 
 public class HelperBase {
-  protected AplicationManager app;
+  protected ApplicationManager app;
   protected WebDriver wd;
 
-  public HelperBase(AplicationManager app) {
+  public HelperBase(ApplicationManager app) {
     this.app=app;
     this.wd = app.getDriver();
   }
