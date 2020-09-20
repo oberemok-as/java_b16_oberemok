@@ -1,8 +1,18 @@
-ru/stqa/pft/sandbox/mfp.java
- ru.stqa.pft.sandbox.mfp
-ru/stqa/pft/sandbox/Rec.java
- ru.stqa.pft.sandbox.Rec
 ru/stqa/pft/sandbox/Square.java
  ru.stqa.pft.sandbox.Square
+ru/stqa/pft/sandbox/Rec.java
+ ru.stqa.pft.sandbox.Rec
+ru/stqa/pft/sandbox/mfp.java
+ ru.stqa.pft.sandbox.mfp
+ru/stqa/pft/sandbox/Equation.java
+ ru.stqa.pft.sandbox.Equation
+ru/stqa/pft/sandbox/Equality.java
+ ru.stqa.pft.sandbox.Equality
+ru/stqa/pft/sandbox/Primes.java
+ ru.stqa.pft.sandbox.Primes
 ru/stqa/pft/sandbox/Point.java
  ru.stqa.pft.sandbox.Point
+ru/stqa/pft/sandbox/Collections.java
+ ru.stqa.pft.sandbox.Collections
+ru/stqa/pft/sandbox/_C.java
+ ru.stqa.pft.sandbox._C
