@@ -1,0 +1,56 @@
+ru/stqa/pft/addressbook/appmanager/ContactHelper.java
+ ru.stqa.pft.addressbook.appmanager.ContactHelper
+ru/stqa/pft/addressbook/appmanager/SessionHelper.java
+ ru.stqa.pft.addressbook.appmanager.SessionHelper
+ru/stqa/pft/addressbook/tests/HbConnectionTest.java
+ ru.stqa.pft.addressbook.tests.HbConnectionTest
+ru/stqa/pft/addressbook/appmanager/HelperBase.java
+ ru.stqa.pft.addressbook.appmanager.HelperBase
+ru/stqa/pft/addressbook/appmanager/DbHelper.java
+ ru.stqa.pft.addressbook.appmanager.DbHelper
+ru/stqa/pft/addressbook/tests/DbConnectionTest.java
+ ru.stqa.pft.addressbook.tests.DbConnectionTest
+ru/stqa/pft/addressbook/model/Groups.java
+ ru.stqa.pft.addressbook.model.Groups
+ru/stqa/pft/addressbook/appmanager/NavigationHelper.java
+ ru.stqa.pft.addressbook.appmanager.NavigationHelper
+ru/stqa/pft/addressbook/generators/GroupDataGenerator.java
+ ru.stqa.pft.addressbook.generators.GroupDataGenerator
+ru/stqa/pft/addressbook/model/ContactData.java
+ ru.stqa.pft.addressbook.model.ContactData
+ru/stqa/pft/addressbook/model/Contacts.java
+ ru.stqa.pft.addressbook.model.Contacts
+ru/stqa/pft/addressbook/model/GroupData.java
+ ru.stqa.pft.addressbook.model.GroupData
+ru/stqa/pft/addressbook/appmanager/GroupHelper.java
+ ru.stqa.pft.addressbook.appmanager.GroupHelper
+ru/stqa/pft/addressbook/tests/ContactModificationTest.java
+ ru.stqa.pft.addressbook.tests.ContactModificationTest
+ru/stqa/pft/addressbook/tests/RemooveContactFromGroup.java
+ ru.stqa.pft.addressbook.tests.RemooveContactFromGroup
+ru/stqa/pft/addressbook/tests/TestBase.java
+ ru.stqa.pft.addressbook.tests.TestBase
+ru/stqa/pft/addressbook/generators/ContactDataGenerator.java
+ ru.stqa.pft.addressbook.generators.ContactDataGenerator
+ru/stqa/pft/addressbook/tests/ContactAddressTest.java
+ ru.stqa.pft.addressbook.tests.ContactAddressTest
+ru/stqa/pft/addressbook/appmanager/AplicationManager.java
+ ru.stqa.pft.addressbook.appmanager.AplicationManager
+ru/stqa/pft/addressbook/tests/GroupDeleteTest.java
+ ru.stqa.pft.addressbook.tests.GroupDeleteTest
+ru/stqa/pft/addressbook/tests/ContactEmailTest.java
+ ru.stqa.pft.addressbook.tests.ContactEmailTest
+ru/stqa/pft/addressbook/tests/GroupModificationTest.java
+ ru.stqa.pft.addressbook.tests.GroupModificationTest
+ru/stqa/pft/addressbook/tests/ContactDeleteTest.java
+ ru.stqa.pft.addressbook.tests.ContactDeleteTest
+ru/stqa/pft/addressbook/tests/AddContactInGroup.java
+ ru.stqa.pft.addressbook.tests.AddContactInGroup
+ru/stqa/pft/addressbook/tests/ContactCreationTest.java
+ ru.stqa.pft.addressbook.tests.ContactCreationTest
+ ru.stqa.pft.addressbook.tests.ContactCreationTest$1
+ru/stqa/pft/addressbook/tests/ContactPhoneTest.java
+ ru.stqa.pft.addressbook.tests.ContactPhoneTest
+ru/stqa/pft/addressbook/tests/GroupCreationTests.java
+ ru.stqa.pft.addressbook.tests.GroupCreationTests
+ ru.stqa.pft.addressbook.tests.GroupCreationTests$1

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="ru.stqa.pft.mantis.tests.SoapTests" tests="2" skipped="1" failures="0" errors="0" timestamp="2020-09-22T17:46:45" hostname="WIN-NSFR499DEQ9" time="1.227">
+  <properties/>
+  <testcase name="testCreateIssue" classname="ru.stqa.pft.mantis.tests.SoapTests" time="1.057"/>
+  <testcase name="testGetProjects" classname="ru.stqa.pft.mantis.tests.SoapTests" time="0.17">
+    <skipped/>
+  </testcase>
+  <system-out><![CDATA[20:46:45.654 [AsyncHttpClient-timer-1-1] DEBUG org.asynchttpclient.netty.channel.DefaultChannelPool - Entry count for : http://localhost:20241 : 1
+20:46:45.654 [AsyncHttpClient-timer-1-1] DEBUG org.asynchttpclient.netty.channel.DefaultChannelPool - Entry count for : http://localhost:55976 : 1
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
