@@ -15,7 +15,7 @@ dependencies {
     implementation 'org.hibernate:hibernate-core:5.4.21.Final'
 }
 
-task testContacts(type: Test) {
+task testGroups(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
