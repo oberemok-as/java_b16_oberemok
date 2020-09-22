@@ -52,7 +52,7 @@ public Iterator<Object[]> validGroupsFromXML() throws IOException {
    }
   }
 
-  @Test(dataProvider = "validGroupsFromJSON")
+  @Test(dataProvider = "validGroupsFromXML")
   public void testGroupCreation(GroupData group) throws Exception {
 app.goTo().groupPage();
       Groups before = app.db().groups();
