@@ -148,10 +148,11 @@ return isElementPresent(By.name("selected[]"));
     wd.findElement(By.name("add")).click();
   }
 
-  public void selestGroup(String group) {
-    //String selectedGroup = group.getGroups().iterator().next().getName();
-    new Select(wd.findElement(By.name("to_group"))).selectByVisibleText(format("%s",group));
+  public void selectGroup(int groupID) {
+        new Select(wd.findElement(By.name("to_group"))).selectByValue(format("%s",groupID));
+
   }
+
 
   public void submitRemoove() {
     wd.findElement(By.name("remove")).click();
