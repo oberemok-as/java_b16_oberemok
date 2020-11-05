@@ -22,7 +22,7 @@ import java.util.concurrent.TimeUnit;
 public class AplicationManager {
   private final Properties properties;
   protected WebDriver wd;
-private SessionHelper sessionHelper;
+  private SessionHelper sessionHelper;
   private  NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
   private ContactHelper contactHelper;
